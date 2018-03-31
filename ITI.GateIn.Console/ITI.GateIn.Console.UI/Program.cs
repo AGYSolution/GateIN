@@ -15,8 +15,8 @@ namespace ITI.GateIn.Console.UI
 
         static void InputDataGate()
         {
-            //var terminal = new Terminal("192.168.15.161", 8023, 10, 80, 40); // hostname, port, timeout [s], width, height
-            var terminal = new Terminal("192.168.43.99", 8023, 10, 80, 40); // hostname, port, timeout [s], width, height
+            var terminal = new Terminal("192.168.15.161", 8023, 10, 80, 40); // hostname, port, timeout [s], width, height
+            //var terminal = new Terminal("192.168.43.99", 8023, 10, 80, 40); // hostname, port, timeout [s], width, height
 
             long contCardID;
             string location;
@@ -48,6 +48,14 @@ namespace ITI.GateIn.Console.UI
                     System.Console.WriteLine("Press enter to continue..");
                     System.Console.ReadLine();
                     PushCommand.PushOK(terminal);
+                }
+                else
+                {
+
+                    System.Console.WriteLine("Data Kendaraan gagal diupdate!");
+                    System.Console.WriteLine("Press enter to continue..");
+                    System.Console.ReadLine();
+                    PushCommand.PushER(terminal);
                 }
             }
 
