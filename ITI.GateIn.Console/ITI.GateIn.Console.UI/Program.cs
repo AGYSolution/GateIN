@@ -37,8 +37,8 @@ namespace ITI.GateIn.Console.UI
                 data.Add(vehicle);
                 System.Console.WriteLine("Data Kendaraan:");
                 System.Console.WriteLine(data.ToStringTable(
-                    new[] { "ID ContCard", "Card Mode", "Ref Mode" },
-                    a => a.ContCardID, a => a.CardMode, a => a.RefID));
+                    new[] { "ID ContCard", "Card Mode", "Ref Mode", "Cont Count", "Cont Size", "Cont Type" },
+                    a => a.ContCardID, a => a.CardMode, a => a.RefID, a => a.Cont, a => a.Size, a => a.Type));
                 System.Console.WriteLine("---");
                 System.Console.Write("Please input location: ");
                 location = System.Console.ReadLine();
