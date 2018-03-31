@@ -10,6 +10,49 @@ namespace ITI.GateIn.Console.UI
     {
         static void Main(string[] args)
         {
+            InputDataGate();
+        }
+
+        static void InputDataGate()
+        {
+            //var terminal = new Terminal("192.168.15.161", 8023, 10, 80, 40); // hostname, port, timeout [s], width, height
+            var terminal = new Terminal("192.168.43.99", 8023, 10, 80, 40); // hostname, port, timeout [s], width, height
+
+            long contCardID;
+            string location;
+
+            System.Console.WriteLine("---");
+            System.Console.Write("Please input container card ID: ");
+            contCardID = Convert.ToInt64(System.Console.ReadLine());
+
+            var vehicle = DAL.GateINDal.CheckKendaraan(contCardID);
+            if (vehicle == null)
+            {
+                PushCommand.PushER(terminal);
+                System.Console.WriteLine("Data Kendaraan tidak ditemukan!");
+            }
+            else
+            {
+                List<DAL.ContCard> data = new List<DAL.ContCard>();
+                data.Add(vehicle);
+                System.Console.WriteLine("Data Kendaraan:");
+                System.Console.WriteLine(data.ToStringTable(
+                    new[] { "ID ContCard", "Card Mode", "Ref Mode" },
+                    a => a.ContCardID, a => a.CardMode, a => a.RefID));
+                System.Console.WriteLine("---");
+                System.Console.Write("Please input location: ");
+                location = System.Console.ReadLine();
+                if (DAL.GateINDal.UpdateContCardGateIn(contCardID, location))
+                {
+                    System.Console.WriteLine("Data Kendaraan berhasil diupdate!");
+                    System.Console.WriteLine("Press enter to continue..");
+                    System.Console.ReadLine();
+                    PushCommand.PushOK(terminal);
+                }
+            }
+
+
+            InputDataGate();
         }
     }
 }

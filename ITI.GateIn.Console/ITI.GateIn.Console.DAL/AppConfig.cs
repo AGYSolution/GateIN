@@ -88,8 +88,8 @@ namespace ITI.GateIn.Console.DAL
                 "localhost",
                 "5432",
                                              //appIdentity.UserId,
-                                             "admin",
-                                            "",
+                                             "icts",
+                                            "123",
                                             "");
             NpgsqlConnection npgsqlConnection = new NpgsqlConnection(connectionString);
             return npgsqlConnection;
