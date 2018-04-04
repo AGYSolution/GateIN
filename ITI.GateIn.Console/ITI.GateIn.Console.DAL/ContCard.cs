@@ -14,12 +14,12 @@ namespace ITI.GateIn.Console.DAL
         public string Cont { get; set; }
         public string Size { get; set; }
         public string Type { get; set; }
-        public DateTime? Dtm1 { get; set; }
+        public string Dtm1 { get; set; } // DateTime?
         public string Loc1 { get; set; }
-        public DateTime? Dtm2 { get; set; }
+        public string Dtm2 { get; set; } // DateTime?
         public string Loc2 { get; set; }
         public string Remark { get; set; }
-        public DateTime? Dtm3 { get; set; }
+        public string Dtm3 { get; set; } // DateTime?
         public string UserID3 { get; set; }
         public long ContInOutID { get; set; }
         public string Seal1 { get; set; }
@@ -32,42 +32,7 @@ namespace ITI.GateIn.Console.DAL
         public string Token { get; set; }
         public bool IsCombo { get; set; }
 
-        public string Seal
-        {
-            get
-            {
-                string seal = string.Empty;
-                if (Seal1.Length > 0)
-                {
-                    seal += Seal1;
-                }
-                if (Seal2.Length > 0)
-                {
-                    if (seal.Length > 0)
-                    {
-                        seal += ",";
-                    }
-                    seal += Seal2;
-                }
-                if (Seal3.Length > 0)
-                {
-                    if (seal.Length > 0)
-                    {
-                        seal += ",";
-                    }
-                    seal += Seal3;
-                }
-                if (Seal4.Length > 0)
-                {
-                    if (seal.Length > 0)
-                    {
-                        seal += ",";
-                    }
-                    seal += Seal4;
-                }
-                return seal;
-            }
-        }
+        public string Seal { get; set; }
 
         public ContCard()
         {

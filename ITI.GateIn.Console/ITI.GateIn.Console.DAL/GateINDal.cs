@@ -20,18 +20,18 @@ namespace ITI.GateIn.Console.DAL
             contCard.Type = npgsqlDataReader.GetString(npgsqlDataReader.GetOrdinal("type"));
             if (npgsqlDataReader["dtm1"] != DBNull.Value)
             {
-                contCard.Dtm1 = npgsqlDataReader.GetDateTime(npgsqlDataReader.GetOrdinal("dtm1"));
+                contCard.Dtm1 = npgsqlDataReader.GetDateTime(npgsqlDataReader.GetOrdinal("dtm1")).ToString();
             }
             contCard.Loc1 = npgsqlDataReader.GetString(npgsqlDataReader.GetOrdinal("loc1"));
             if (npgsqlDataReader["dtm2"] != DBNull.Value)
             {
-                contCard.Dtm2 = npgsqlDataReader.GetDateTime(npgsqlDataReader.GetOrdinal("dtm2"));
+                contCard.Dtm2 = npgsqlDataReader.GetDateTime(npgsqlDataReader.GetOrdinal("dtm2")).ToString();
             }
             contCard.Loc2 = npgsqlDataReader.GetString(npgsqlDataReader.GetOrdinal("loc2"));
             contCard.Remark = npgsqlDataReader.GetString(npgsqlDataReader.GetOrdinal("remark"));
             if (npgsqlDataReader["dtm3"] != DBNull.Value)
             {
-                contCard.Dtm3 = npgsqlDataReader.GetDateTime(npgsqlDataReader.GetOrdinal("dtm3"));
+                contCard.Dtm3 = npgsqlDataReader.GetDateTime(npgsqlDataReader.GetOrdinal("dtm3")).ToString();
             }
             contCard.ContInOutID = npgsqlDataReader.GetInt64(npgsqlDataReader.GetOrdinal("continoutid"));
             contCard.UserID3 = npgsqlDataReader.GetString(npgsqlDataReader.GetOrdinal("userid3"));
