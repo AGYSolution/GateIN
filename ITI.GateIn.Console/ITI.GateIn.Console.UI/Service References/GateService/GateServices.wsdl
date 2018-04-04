@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckKendaraan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckKendaraanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckKendaraanResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContCardGateIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContCardGateInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateContCardGateInResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContCardGateOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContCardGateOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateContCardGateOutResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckKendaraanSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckKendaraan" />
+  </wsdl:message>
+  <wsdl:message name="CheckKendaraanSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckKendaraanResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContCardGateInSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateContCardGateIn" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContCardGateInSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateContCardGateInResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContCardGateOutSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateContCardGateOut" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContCardGateOutSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateContCardGateOutResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GateServicesSoap">
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckKendaraan">
+      <wsdl:input message="tns:CheckKendaraanSoapIn" />
+      <wsdl:output message="tns:CheckKendaraanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContCardGateIn">
+      <wsdl:input message="tns:UpdateContCardGateInSoapIn" />
+      <wsdl:output message="tns:UpdateContCardGateInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContCardGateOut">
+      <wsdl:input message="tns:UpdateContCardGateOutSoapIn" />
+      <wsdl:output message="tns:UpdateContCardGateOutSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GateServicesSoap" type="tns:GateServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckKendaraan">
+      <soap:operation soapAction="http://tempuri.org/CheckKendaraan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContCardGateIn">
+      <soap:operation soapAction="http://tempuri.org/UpdateContCardGateIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContCardGateOut">
+      <soap:operation soapAction="http://tempuri.org/UpdateContCardGateOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GateServicesSoap12" type="tns:GateServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckKendaraan">
+      <soap12:operation soapAction="http://tempuri.org/CheckKendaraan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContCardGateIn">
+      <soap12:operation soapAction="http://tempuri.org/UpdateContCardGateIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContCardGateOut">
+      <soap12:operation soapAction="http://tempuri.org/UpdateContCardGateOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GateServices">
+    <wsdl:port name="GateServicesSoap" binding="tns:GateServicesSoap">
+      <soap:address location="http://localhost:1726/GateServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GateServicesSoap12" binding="tns:GateServicesSoap12">
+      <soap12:address location="http://localhost:1726/GateServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
