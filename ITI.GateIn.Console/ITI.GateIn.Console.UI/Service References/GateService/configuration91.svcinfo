@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="vd4KJOK/r2Y+++xoNToyUZOp2tE=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="iME7DF4devPWjFGvzI01/Hl013Y=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="GateServicesSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="GateServicesSoap" contract="GateService.GateServicesSoap" bindingType="basicHttpBinding" address="http://localhost:1726/GateServices.asmx" bindingConfiguration="GateServicesSoap">
+    <endpoint name="GateServicesSoap" contract="GateService.GateServicesSoap" bindingType="basicHttpBinding" address="http://localhost:99/GateServices.asmx" bindingConfiguration="GateServicesSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:1726/GateServices.asmx</serializedValue>
+          <serializedValue>http://localhost:99/GateServices.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

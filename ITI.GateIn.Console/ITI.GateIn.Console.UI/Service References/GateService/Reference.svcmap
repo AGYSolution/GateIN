@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1726/GateServices.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:99/GateServices.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GateServices.wsdl" MetadataType="Wsdl" ID="ed57ad54-8df8-4ce6-a34d-dd7c691cc36e" SourceId="1" SourceUrl="http://localhost:1726/GateServices.asmx?wsdl" />
-    <MetadataFile FileName="GateServices.disco" MetadataType="Disco" ID="ecb8f10f-8763-466e-a3d9-39b2a83b29c1" SourceId="1" SourceUrl="http://localhost:1726/GateServices.asmx?disco" />
+    <MetadataFile FileName="GateServices1.disco" MetadataType="Disco" ID="479fbcd3-af05-4885-b43d-d98d0113e43d" SourceId="1" SourceUrl="http://localhost:99/GateServices.asmx?disco" />
+    <MetadataFile FileName="GateServices1.wsdl" MetadataType="Wsdl" ID="cf7a2494-e45b-4fc6-bf50-b8d6905ac5c4" SourceId="1" SourceUrl="http://localhost:99/GateServices.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

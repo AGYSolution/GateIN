@@ -37,11 +37,25 @@ namespace ITI.GateIn.Console.UI.GateService {
         System.Threading.Tasks.Task<ITI.GateIn.Console.UI.GateService.UpdateContCardGateInResponse> UpdateContCardGateInAsync(ITI.GateIn.Console.UI.GateService.UpdateContCardGateInRequest request);
         
         // CODEGEN: Generating message contract since element name location from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateContInOutGateIn", ReplyAction="*")]
+        ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInResponse UpdateContInOutGateIn(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateContInOutGateIn", ReplyAction="*")]
+        System.Threading.Tasks.Task<ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInResponse> UpdateContInOutGateInAsync(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequest request);
+        
+        // CODEGEN: Generating message contract since element name location from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateContCardGateOut", ReplyAction="*")]
         ITI.GateIn.Console.UI.GateService.UpdateContCardGateOutResponse UpdateContCardGateOut(ITI.GateIn.Console.UI.GateService.UpdateContCardGateOutRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateContCardGateOut", ReplyAction="*")]
         System.Threading.Tasks.Task<ITI.GateIn.Console.UI.GateService.UpdateContCardGateOutResponse> UpdateContCardGateOutAsync(ITI.GateIn.Console.UI.GateService.UpdateContCardGateOutRequest request);
+        
+        // CODEGEN: Generating message contract since element name location from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateContInOutGateOut", ReplyAction="*")]
+        ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutResponse UpdateContInOutGateOut(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateContInOutGateOut", ReplyAction="*")]
+        System.Threading.Tasks.Task<ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutResponse> UpdateContInOutGateOutAsync(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -260,6 +274,78 @@ namespace ITI.GateIn.Console.UI.GateService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateContInOutGateInRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateContInOutGateIn", Namespace="http://tempuri.org/", Order=0)]
+        public ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequestBody Body;
+        
+        public UpdateContInOutGateInRequest() {
+        }
+        
+        public UpdateContInOutGateInRequest(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateContInOutGateInRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public long id;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string location;
+        
+        public UpdateContInOutGateInRequestBody() {
+        }
+        
+        public UpdateContInOutGateInRequestBody(long id, string location) {
+            this.id = id;
+            this.location = location;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateContInOutGateInResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateContInOutGateInResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInResponseBody Body;
+        
+        public UpdateContInOutGateInResponse() {
+        }
+        
+        public UpdateContInOutGateInResponse(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateContInOutGateInResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool UpdateContInOutGateInResult;
+        
+        public UpdateContInOutGateInResponseBody() {
+        }
+        
+        public UpdateContInOutGateInResponseBody(bool UpdateContInOutGateInResult) {
+            this.UpdateContInOutGateInResult = UpdateContInOutGateInResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class UpdateContCardGateOutRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateContCardGateOut", Namespace="http://tempuri.org/", Order=0)]
@@ -325,6 +411,78 @@ namespace ITI.GateIn.Console.UI.GateService {
         
         public UpdateContCardGateOutResponseBody(bool UpdateContCardGateOutResult) {
             this.UpdateContCardGateOutResult = UpdateContCardGateOutResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateContInOutGateOutRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateContInOutGateOut", Namespace="http://tempuri.org/", Order=0)]
+        public ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequestBody Body;
+        
+        public UpdateContInOutGateOutRequest() {
+        }
+        
+        public UpdateContInOutGateOutRequest(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateContInOutGateOutRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public long id;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string location;
+        
+        public UpdateContInOutGateOutRequestBody() {
+        }
+        
+        public UpdateContInOutGateOutRequestBody(long id, string location) {
+            this.id = id;
+            this.location = location;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateContInOutGateOutResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateContInOutGateOutResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutResponseBody Body;
+        
+        public UpdateContInOutGateOutResponse() {
+        }
+        
+        public UpdateContInOutGateOutResponse(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateContInOutGateOutResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool UpdateContInOutGateOutResult;
+        
+        public UpdateContInOutGateOutResponseBody() {
+        }
+        
+        public UpdateContInOutGateOutResponseBody(bool UpdateContInOutGateOutResult) {
+            this.UpdateContInOutGateOutResult = UpdateContInOutGateOutResult;
         }
     }
     
@@ -435,6 +593,33 @@ namespace ITI.GateIn.Console.UI.GateService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInResponse ITI.GateIn.Console.UI.GateService.GateServicesSoap.UpdateContInOutGateIn(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequest request) {
+            return base.Channel.UpdateContInOutGateIn(request);
+        }
+        
+        public bool UpdateContInOutGateIn(long id, string location) {
+            ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequest inValue = new ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequest();
+            inValue.Body = new ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.location = location;
+            ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInResponse retVal = ((ITI.GateIn.Console.UI.GateService.GateServicesSoap)(this)).UpdateContInOutGateIn(inValue);
+            return retVal.Body.UpdateContInOutGateInResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInResponse> ITI.GateIn.Console.UI.GateService.GateServicesSoap.UpdateContInOutGateInAsync(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequest request) {
+            return base.Channel.UpdateContInOutGateInAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInResponse> UpdateContInOutGateInAsync(long id, string location) {
+            ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequest inValue = new ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequest();
+            inValue.Body = new ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.location = location;
+            return ((ITI.GateIn.Console.UI.GateService.GateServicesSoap)(this)).UpdateContInOutGateInAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ITI.GateIn.Console.UI.GateService.UpdateContCardGateOutResponse ITI.GateIn.Console.UI.GateService.GateServicesSoap.UpdateContCardGateOut(ITI.GateIn.Console.UI.GateService.UpdateContCardGateOutRequest request) {
             return base.Channel.UpdateContCardGateOut(request);
         }
@@ -459,6 +644,33 @@ namespace ITI.GateIn.Console.UI.GateService {
             inValue.Body.id = id;
             inValue.Body.location = location;
             return ((ITI.GateIn.Console.UI.GateService.GateServicesSoap)(this)).UpdateContCardGateOutAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutResponse ITI.GateIn.Console.UI.GateService.GateServicesSoap.UpdateContInOutGateOut(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequest request) {
+            return base.Channel.UpdateContInOutGateOut(request);
+        }
+        
+        public bool UpdateContInOutGateOut(long id, string location) {
+            ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequest inValue = new ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequest();
+            inValue.Body = new ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.location = location;
+            ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutResponse retVal = ((ITI.GateIn.Console.UI.GateService.GateServicesSoap)(this)).UpdateContInOutGateOut(inValue);
+            return retVal.Body.UpdateContInOutGateOutResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutResponse> ITI.GateIn.Console.UI.GateService.GateServicesSoap.UpdateContInOutGateOutAsync(ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequest request) {
+            return base.Channel.UpdateContInOutGateOutAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutResponse> UpdateContInOutGateOutAsync(long id, string location) {
+            ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequest inValue = new ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequest();
+            inValue.Body = new ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.location = location;
+            return ((ITI.GateIn.Console.UI.GateService.GateServicesSoap)(this)).UpdateContInOutGateOutAsync(inValue);
         }
     }
 }

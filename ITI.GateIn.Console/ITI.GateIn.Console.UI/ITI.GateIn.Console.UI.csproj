@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\GateService\GateServices.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ITI.GateIn.Console.DAL\ITI.GateIn.Console.DAL.csproj">
@@ -72,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />
+    <None Include="Service References\GateService\GateServices1.disco" />
+    <None Include="Service References\GateService\GateServices1.wsdl" />
     <None Include="Service References\GateService\ITI.GateIn.Console.UI.GateService.CheckKendaraanResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -84,13 +85,18 @@
     <None Include="Service References\GateService\ITI.GateIn.Console.UI.GateService.UpdateContCardGateOutResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\GateService\ITI.GateIn.Console.UI.GateService.UpdateContInOutGateInResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GateService\ITI.GateIn.Console.UI.GateService.UpdateContInOutGateOutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\GateService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\GateService\configuration.svcinfo" />
     <None Include="Service References\GateService\configuration91.svcinfo" />
-    <None Include="Service References\GateService\GateServices.disco" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

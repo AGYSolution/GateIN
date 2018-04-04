@@ -48,10 +48,10 @@ namespace ITI.GateIn.Console.DAL
 
         public static NpgsqlConnection GetConnection()
         {
-            string loginServer = "localhost";
-            string port = "5432";
-            string userId = "agys";
-            string password = "agys123";
+            string loginServer = "192.168.15.1";
+            string port = "5032";
+            string userId = "Agys";
+            string password = "Agys123";
             string database = "icts";
             if (ConfigurationManager.AppSettings["LoginServer"] != null)
             {
@@ -85,12 +85,12 @@ namespace ITI.GateIn.Console.DAL
 
             string connectionString = string.Format(ConnectionString + "Pooling = True; MaxPoolSize = 60;",
 
-                "localhost",
-                "5432",
+                "192.168.15.1",
+                "5032",
                                              //appIdentity.UserId,
-                                             "icts",
-                                            "123",
-                                            "");
+                                             "rizki",
+                                            "rizki123",
+                                            "icts");
             NpgsqlConnection npgsqlConnection = new NpgsqlConnection(connectionString);
             return npgsqlConnection;
         }

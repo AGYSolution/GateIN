@@ -15,19 +15,19 @@ namespace ITI.GateIn.Console.UI
         {
             GateService.GateServicesSoapClient service = new GateService.GateServicesSoapClient();
 
-        //    string userid;
-        //    string password;
+            //    string userid;
+            //    string password;
 
-        //STARTED:
-        //    System.Console.WriteLine("--- Login ---");
-        //    System.Console.Write("Please input username: ");
-        //    userid = System.Console.ReadLine();
-        //    System.Console.Write("Please input password: ");
-        //    password = System.Console.ReadLine();
-        //    if (!service.Login(userid, password))
-        //    {
-        //        goto STARTED;
-        //    }
+            //STARTED:
+            //    System.Console.WriteLine("--- Login ---");
+            //    System.Console.Write("Please input username: ");
+            //    userid = System.Console.ReadLine();
+            //    System.Console.Write("Please input password: ");
+            //    password = System.Console.ReadLine();
+            //    if (!service.Login(userid, password))
+            //    {
+            //        goto STARTED;
+            //    }
 
             System.Console.WriteLine("--- Welcome to gate app ---");
             InputDataGate(service);
@@ -35,8 +35,8 @@ namespace ITI.GateIn.Console.UI
 
         static void InputDataGate(GateService.GateServicesSoapClient service)
         {
-            //var terminal = new Terminal("192.168.15.161", 8023, 10, 80, 40); // hostname, port, timeout [s], width, height
-            var terminal = new Terminal("192.168.43.99", 8023, 10, 80, 40); // hostname, port, timeout [s], width, height
+            var terminal = new Terminal("192.168.15.161", 8023, 10, 80, 40); // hostname, port, timeout [s], width, height
+            //var terminal = new Terminal("192.168.43.99", 8023, 10, 80, 40); // hostname, port, timeout [s], width, height
 
             long contCardID;
             string location;
@@ -64,11 +64,14 @@ namespace ITI.GateIn.Console.UI
                 location = System.Console.ReadLine();
                 if (service.UpdateContCardGateIn(contCardID, location))
                 {
-                    System.Console.WriteLine("Data Kendaraan berhasil diupdate!");
-                    System.Console.WriteLine("Press enter to continue..");
-                    System.Console.ReadLine();
-                    PushCommand.PushOK(terminal);
-                    System.Console.WriteLine("---");
+                    if (service.UpdateContInOutGateIn(contCardID, location))
+                    {
+                        System.Console.WriteLine("Data Kendaraan berhasil diupdate!");
+                        System.Console.WriteLine("Press enter to continue..(OPEN GATE)");
+                        System.Console.ReadLine();
+                        PushCommand.PushOK(terminal);
+                        System.Console.WriteLine("---");
+                    }
                 }
             }
 

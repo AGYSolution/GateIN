@@ -10,7 +10,7 @@ namespace ITI.GateIn.Console.DAL
         public const string DEFAULT_COLUMN = " {0}contcardid,{0}cardmode,{0}refid,{0}cont,{0}size,{0}type,{0}dtm1,{0}loc1,{0}dtm2,{0}loc2,{0}remark,{0}dtm3,{0}continoutid,{0}userid3,{0}seal1,{0}seal2,{0}seal3,{0}seal4,{0}nomobilout,{0}angkutanout,{0}eiroutno,{0}token,{0}iscombo ";
         public const string DEFAULT_TABLE = "contcard";
 
-        private static void MappingDataReaderToContCard(NpgsqlDataReader npgsqlDataReader, ContCard contCard)
+        private static void MappingDataReaderToContCard(NpgsqlDataReader npgsqlDataReader,  ContCard contCard)
         {
             contCard.ContCardID = npgsqlDataReader.GetInt64(npgsqlDataReader.GetOrdinal("contcardid"));
             contCard.CardMode = npgsqlDataReader.GetString(npgsqlDataReader.GetOrdinal("cardmode"));
@@ -159,12 +159,14 @@ namespace ITI.GateIn.Console.DAL
                         npgsqlConnection.Open();
                     }
                     string query = "    UPDATE contcard " +
-                                    "   SET  dtm1=@Dtm1, loc1=@Loc1  " +
+                                    "   SET cardmode=@cardmode,  dtm1=@Dtm1, loc1=@Loc1  " +
                                     "   WHERE contcardid=@ContCardID ";
                     using (NpgsqlCommand npgsqlCommand = new NpgsqlCommand(query, npgsqlConnection))
                     {
 
                         npgsqlCommand.Parameters.AddWithValue("@ContCardID", contCardID);
+
+                        npgsqlCommand.Parameters.AddWithValue("@cardmode", "IN");
                         npgsqlCommand.Parameters.AddWithValue("@Dtm1", DateTime.Now);
                         npgsqlCommand.Parameters.AddWithValue("@Loc1", location);
                         rowAffected = npgsqlCommand.ExecuteNonQuery();
