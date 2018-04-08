@@ -139,7 +139,7 @@ namespace ITI.GateIn.Console.UI
                 {
                     System.Console.WriteLine("info: make sure the Secure Gate IN is configured properly. " + System.Console.Out.NewLine + "See SCGIN manual page \"Installation and Setup\" for instruction.");
                 }
-                System.Console.WriteLine(System.Console.Out.NewLine + @"type: \c to connect" + System.Console.Out.NewLine + @"    : \h for help with mitcts command" + System.Console.Out.NewLine + @"    : \q to quit" + System.Console.Out.NewLine);
+                System.Console.WriteLine(System.Console.Out.NewLine + @"type: \c to connect" + System.Console.Out.NewLine + @"    : \h for help with SCGIN command" + System.Console.Out.NewLine + @"    : \q to quit" + System.Console.Out.NewLine);
             }
             string str2 = string.Empty;
             bool flag = false;
