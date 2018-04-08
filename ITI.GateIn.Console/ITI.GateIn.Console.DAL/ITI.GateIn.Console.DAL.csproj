@@ -51,8 +51,13 @@
   <ItemGroup>
     <Compile Include="AppConfig.cs" />
     <Compile Include="ContCard.cs" />
-    <Compile Include="GateINDal.cs" />
+    <Compile Include="ContCardDal.cs" />
+    <Compile Include="ContCardPic.cs" />
+    <Compile Include="ContCardPICDal.cs" />
+    <Compile Include="CtsCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecureGateLog.cs" />
+    <Compile Include="SecureGateLogDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
