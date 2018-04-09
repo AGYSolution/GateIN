@@ -25,6 +25,8 @@ namespace ITI.GateIn.Console.UI
 
         static void Main(string[] args)
         {
+
+            SecureGateLog log = new SecureGateLog();
             _SecureGateTelnetAddress = ConfigurationSettings.AppSettings["TelnetAddress"];
             _SecureGateTelnetPort = ConfigurationSettings.AppSettings["TelnetPort"];
             _SecureGateLocName = ConfigurationSettings.AppSettings["sgatelocname"];
@@ -92,7 +94,7 @@ namespace ITI.GateIn.Console.UI
                         case "open":
                             try
                             {
-                                OpenGate("openup command");
+                                OpenGate("openup command",log);
                             }
                             catch (Exception exception)
                             {
@@ -111,7 +113,7 @@ namespace ITI.GateIn.Console.UI
                         default:
                             try
                             {
-                                ProcessInput(input);
+                                ProcessInput(input,log);
                             }
                             catch (Exception exception2)
                             {
@@ -176,7 +178,7 @@ namespace ITI.GateIn.Console.UI
             //System.Console.WriteLine("--- Welcome to gate app ---");
             //InputDataGate(service);
         }
-        private static void OpenGate(string openedby)
+        private static void OpenGate(string openedby,SecureGateLog log)
         {
             try
             {
@@ -211,19 +213,21 @@ namespace ITI.GateIn.Console.UI
             }
             try
             {
-                SecureGateLog log = new SecureGateLog();
                 SecureGateLogDAL logDal = new SecureGateLogDAL();
                 log.Loc1 = _SecureGateLocName;
                 log.LogCat = "GATE OPEN EVENT";
                 log.LogRemark = openedby;
+                if(log.SecureGateLogID <= 0 )
                 logDal.InsertSecureGateLog(log);
+                else
+                    logDal.UpdateSecureGateLog(log);
             }
             catch (Exception exception3)
             {
                 System.Console.WriteLine("error: " + exception3.Message);
             }
         }
-        private static void ProcessInput(string input)
+        private static void ProcessInput(string input,SecureGateLog log)
         {
             if (input.Length > 0)
             {
@@ -244,7 +248,7 @@ namespace ITI.GateIn.Console.UI
                     cardDAL.UpdateContCardGateIn(contCardModel.ContCardID, contCardModel.Loc1);
 
                     System.Console.WriteLine("DTM1 USED");
-                    OpenGate(input);
+                    OpenGate(input,log  );
                     if ((_CaptureFile.Length > 0) && File.Exists(_CaptureFile))
                     {
                         FileStream stream = File.OpenRead(_CaptureFile);
