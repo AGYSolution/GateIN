@@ -38,12 +38,12 @@ namespace ITI.GateIn.Console.DAL
             Cont = string.Empty;
             Size = string.Empty;
             Type = string.Empty;
-            Dtm1 = null;
+            Dtm1 = string.Empty;
             Loc1 = string.Empty;
-            Dtm2 = null;
+            Dtm2 = string.Empty;
             Loc2 = string.Empty;
             Remark = string.Empty;
-            Dtm3 = null;
+            Dtm3 = string.Empty;
             UserID3 = string.Empty;
             ContInOutID = 0;
 

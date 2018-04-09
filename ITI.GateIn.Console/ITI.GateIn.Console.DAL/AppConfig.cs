@@ -49,9 +49,10 @@ namespace ITI.GateIn.Console.DAL
         public static NpgsqlConnection GetConnection()
         {
             string loginServer = "192.168.15.1";
-            string port = "5032";
-            string userId = "Agys";
-            string password = "Agys123";
+            //string port = "5032";
+            string port = "5432";
+            string userId = "agys";
+            string password = "agys123";
             string database = "icts";
             if (ConfigurationManager.AppSettings["LoginServer"] != null)
             {

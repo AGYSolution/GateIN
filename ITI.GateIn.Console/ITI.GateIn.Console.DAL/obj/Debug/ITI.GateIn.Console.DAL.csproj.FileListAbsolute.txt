@@ -1,16 +1,9 @@
-C:\Project Gate\GateOut\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\ITI.GateIn.Console.DAL.dll
-C:\Project Gate\GateOut\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\ITI.GateIn.Console.DAL.pdb
-C:\Project Gate\GateOut\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.csprojResolveAssemblyReference.cache
-C:\Project Gate\GateOut\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.csproj.CoreCompileInputs.cache
-C:\Project Gate\GateOut\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.dll
-C:\Project Gate\GateOut\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.pdb
-C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\ITI.GateIn.Console.DAL.dll
-C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\ITI.GateIn.Console.DAL.pdb
-C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\Npgsql.dll
-C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\System.Threading.Tasks.Extensions.dll
-C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\Npgsql.xml
-C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.csproj.CoreCompileInputs.cache
-C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.dll
-C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.pdb
-C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.csprojResolveAssemblyReference.cache
+C:\Shared\ICTS\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\ITI.GateIn.Console.DAL.dll
+C:\Shared\ICTS\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\ITI.GateIn.Console.DAL.pdb
+C:\Shared\ICTS\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.csprojResolveAssemblyReference.cache
+C:\Shared\ICTS\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.dll
+C:\Shared\ICTS\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.pdb
+C:\Shared\ICTS\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\Npgsql.dll
+C:\Shared\ICTS\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Shared\ICTS\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\Npgsql.xml
+C:\Shared\ICTS\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\System.Threading.Tasks.Extensions.xml
