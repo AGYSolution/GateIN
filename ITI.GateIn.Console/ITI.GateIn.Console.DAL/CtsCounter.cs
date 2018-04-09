@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,11 @@ namespace ITI.GateIn.Console.DAL
             {
                 using (NpgsqlConnection npgsqlConnection = AppConfig.GetConnection())
                 {
+                    if (npgsqlConnection.State == ConnectionState.Closed)
+                    {
+                        npgsqlConnection.Open();
+
+                    }
                     string query = "SELECT * FROM ctscounter WHERE code=@code FOR UPDATE ";
                     using (NpgsqlCommand npgsqlCommand = new NpgsqlCommand(query, npgsqlConnection))
                     {
@@ -43,6 +49,11 @@ namespace ITI.GateIn.Console.DAL
             {
                 using (NpgsqlConnection npgsqlConnection = AppConfig.GetConnection())
                 {
+                    if (npgsqlConnection.State == ConnectionState.Closed)
+                    {
+                        npgsqlConnection.Open();
+
+                    }
                     string query = "INSERT INTO ctscounter(code,cnt) VALUES(@code,@cnt) ";
                     using (NpgsqlCommand npgsqlCommand = new NpgsqlCommand(query, npgsqlConnection))
                     {
@@ -65,6 +76,11 @@ namespace ITI.GateIn.Console.DAL
             {
                 using (NpgsqlConnection npgsqlConnection = AppConfig.GetConnection())
                 {
+                    if (npgsqlConnection.State == ConnectionState.Closed)
+                    {
+                        npgsqlConnection.Open();
+
+                    }
                     string query = "UPDATE ctscounter SET cnt=@cnt WHERE code=@code ";
                     using (NpgsqlCommand npgsqlCommand = new NpgsqlCommand(query, npgsqlConnection))
                     {
