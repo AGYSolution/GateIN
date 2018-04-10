@@ -49,10 +49,9 @@ namespace ITI.GateIn.Console.DAL
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
             return result;
         }
@@ -80,10 +79,9 @@ namespace ITI.GateIn.Console.DAL
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
             return result;
         }
@@ -112,10 +110,9 @@ namespace ITI.GateIn.Console.DAL
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
             return contCardPic;
         }

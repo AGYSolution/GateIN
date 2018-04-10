@@ -10,7 +10,7 @@ namespace ITI.GateIn.Console.DAL
 {
     public class CtsCounter
     {
-        public static bool CheckAvailable(string code)
+        public static bool CheckAvailable(string code, ref long count)
         {
             bool result = false;
             try
@@ -30,6 +30,7 @@ namespace ITI.GateIn.Console.DAL
                         {
                             if (npgsqlDataReader.Read())
                             {
+                                count = npgsqlDataReader.GetInt64(npgsqlDataReader.GetOrdinal("cnt"));
                                 result = true;
                             }
                         }
@@ -100,7 +101,7 @@ namespace ITI.GateIn.Console.DAL
         public static long NextValCtsCounter(string code)
         {
             long count = 0;
-            if (CheckAvailable(code))
+            if (CheckAvailable(code, ref count))
             {
                 count += 1;
                 UpdateCtsCounter(code, count);
@@ -116,7 +117,7 @@ namespace ITI.GateIn.Console.DAL
         public static void SetValCtsCounter(string code, long val)
         {
             long count = 0;
-            if (CheckAvailable(code))
+            if (CheckAvailable(code, ref count))
             {
                 count = val;
                 UpdateCtsCounter(code, count);
