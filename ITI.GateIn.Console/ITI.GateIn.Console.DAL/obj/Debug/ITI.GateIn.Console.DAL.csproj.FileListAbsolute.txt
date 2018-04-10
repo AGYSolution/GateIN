@@ -13,7 +13,6 @@ C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug
 C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\Npgsql.xml
 C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.csprojResolveAssemblyReference.cache
 C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.csproj.CoreCompileInputs.cache
 C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.dll
 C:\Project Gate\GateIN\trunk\ITI.GateIn.Console\ITI.GateIn.Console.DAL\obj\Debug\ITI.GateIn.Console.DAL.pdb

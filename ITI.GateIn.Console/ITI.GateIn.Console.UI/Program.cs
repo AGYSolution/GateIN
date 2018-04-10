@@ -94,7 +94,7 @@ namespace ITI.GateIn.Console.UI
                         case "open":
                             try
                             {
-                                OpenGate("openup command",log);
+                                OpenGate("openup command", log, new ContCard());
                             }
                             catch (Exception exception)
                             {
@@ -113,7 +113,7 @@ namespace ITI.GateIn.Console.UI
                         default:
                             try
                             {
-                                ProcessInput(input,log);
+                                ProcessInput(input, log);
                             }
                             catch (Exception exception2)
                             {
@@ -178,7 +178,7 @@ namespace ITI.GateIn.Console.UI
             //System.Console.WriteLine("--- Welcome to gate app ---");
             //InputDataGate(service);
         }
-        private static void OpenGate(string openedby,SecureGateLog log)
+        private static void OpenGate(string openedby, SecureGateLog log, ContCard contCard)
         {
             try
             {
@@ -217,8 +217,12 @@ namespace ITI.GateIn.Console.UI
                 log.Loc1 = _SecureGateLocName;
                 log.LogCat = "GATE OPEN EVENT";
                 log.LogRemark = openedby;
-                if(log.SecureGateLogID <= 0 )
-                logDal.InsertSecureGateLog(log);
+                log.RefID = contCard.ContCardID;
+                if (log.SecureGateLogID <= 0)
+                {
+                    logDal.DeleteSecureGateLog(log);
+                    logDal.InsertSecureGateLog(log);
+                }
                 else
                     logDal.UpdateSecureGateLog(log);
             }
@@ -227,7 +231,7 @@ namespace ITI.GateIn.Console.UI
                 System.Console.WriteLine("error: " + exception3.Message);
             }
         }
-        private static void ProcessInput(string input,SecureGateLog log)
+        private static void ProcessInput(string input, SecureGateLog log)
         {
             if (input.Length > 0)
             {
@@ -248,7 +252,7 @@ namespace ITI.GateIn.Console.UI
                     cardDAL.UpdateContCardGateIn(contCardModel.ContCardID, contCardModel.Loc1);
 
                     System.Console.WriteLine("DTM1 USED");
-                    OpenGate(input,log  );
+                    OpenGate(input, log, contCardModel);
                     if ((_CaptureFile.Length > 0) && File.Exists(_CaptureFile))
                     {
                         FileStream stream = File.OpenRead(_CaptureFile);

@@ -25,6 +25,40 @@ namespace ITI.GateIn.Console.DAL
 
             secureGateLog.RefID = npgsqlDataReader.GetInt64(npgsqlDataReader.GetOrdinal("RefID"));
         }
+        public bool DeleteSecureGateLog(SecureGateLog secureGateLog)
+        {
+            bool result = false;
+            try
+            {
+                using (NpgsqlConnection npgsqlConnection = AppConfig.GetConnection())
+                {
+                    if (npgsqlConnection.State == ConnectionState.Closed)
+                    {
+                        npgsqlConnection.Open();
+
+                    }
+                    string query = "Delete from SecureGateLog where SecureGateLogID =@SecureGateLogID ";
+                    //secureGateLog.SecureGateLogID = CtsCounter.NextValCtsCounter("SecureGateLog_SecureGateLogID_SEQ");
+                    //secureGateLog.Dtm1 = DateTime.Now;
+                    using (NpgsqlCommand npgsqlCommand = new NpgsqlCommand(query, npgsqlConnection))
+                    {
+                        npgsqlCommand.Parameters.AddWithValue("@SecureGateLogID", secureGateLog.SecureGateLogID);
+
+
+                        npgsqlCommand.ExecuteNonQuery();
+                        result = true;
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return result;
+        }
         public bool InsertSecureGateLog(SecureGateLog secureGateLog)
         {
             bool result = false;
