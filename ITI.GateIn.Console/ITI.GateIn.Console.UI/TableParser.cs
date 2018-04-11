@@ -11,9 +11,8 @@ namespace ITI.GateIn.Console.UI
 {
     public static class TableParser
     {
-        public static string ToStringTable<T>(
-    this IEnumerable<T> values,
-    params Expression<Func<T, object>>[] valueSelectors)
+        public static string ToStringTable<T>(this IEnumerable<T> values,
+                                                params Expression<Func<T, object>>[] valueSelectors)
         {
             var headers = valueSelectors.Select(func => GetProperty(func).Name).ToArray();
             var selectors = valueSelectors.Select(exp => exp.Compile()).ToArray();

@@ -45,7 +45,7 @@ namespace ITI.GateIn.Console.DAL
             contCard.IsCombo = npgsqlDataReader.GetBoolean(npgsqlDataReader.GetOrdinal("iscombo"));
         }
 
-        public static string CheckKendaraan(string contCardID)
+        public static string CheckContCardByContCardId(string contCardID)
         {
             string result = string.Empty;
             try
@@ -109,7 +109,8 @@ namespace ITI.GateIn.Console.DAL
 
             return result;
         }
-        public ContCard CheckKendaraan(long contCardID)
+
+        public ContCard GetContCardByContCardId(long contCardID)
         {
             ContCard contCard = null;
             try

@@ -1,9 +1,4 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
 
 namespace ITI.GateIn.Console.DAL
@@ -83,15 +78,7 @@ namespace ITI.GateIn.Console.DAL
 
         public static NpgsqlConnection GetUserConnection()
         {
-
-            string connectionString = string.Format(ConnectionString + "Pooling = True; MaxPoolSize = 60;",
-
-                "192.168.15.1",
-                "5032",
-                                             //appIdentity.UserId,
-                                             "rizki",
-                                            "rizki123",
-                                            "icts");
+            string connectionString = string.Format(ConnectionString + "Pooling = True; MaxPoolSize = 60;","192.168.15.1","5032","rizki","rizki123","icts");
             NpgsqlConnection npgsqlConnection = new NpgsqlConnection(connectionString);
             return npgsqlConnection;
         }
