@@ -289,17 +289,28 @@ namespace ITI.GateIn.Console.UI
             try
             {
                 if (!this.IsOpenConnection || this._tcpClient == null) return string.Empty;
-                byte[] dataReceived = new byte[256];
+                byte[] dataReceived = new byte[10];
                 this._tcpClient.GetStream().BeginRead(dataReceived, 0, dataReceived.Length, this._callBackReceive, null);
-                //result = Encoding.ASCII.GetString(dataReceived);
-                using (var reader = new StreamReader(this._tcpClient.GetStream()))
+                var sb = new StringBuilder();
+                if (dataReceived.Length > 0)
                 {
-                    result = reader.ReadLine();
+                    
+                    var buffer2 = new char[dataReceived.Length];
+                    Array.Copy(dataReceived, buffer2, dataReceived.Length);
+                    sb.Append(buffer2);
 
-                    // do something with the data...
+                    // if sb meets some criteria, process the data...
                 }
+                result = sb.ToString().Replace("\0", "");
+                 
+                //using (var reader = new StreamReader(this._tcpClient.GetStream()))
+                //{
+                //    result = reader.ReadLine();
+
+                //    // do something with the data...
+                //}
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 result = string.Empty;
             }

@@ -60,15 +60,34 @@ namespace ITI.GateIn.Console.UI
                 {
                     System.Console.Write("SCGIN> ");
                     //if (string.IsNullOrEmpty(input)) input = terminal.getResponse();//tambahan grafik 17-04-2018
-                    while (string.IsNullOrEmpty(input))
+                    int countLoop = 0;
+                    Label_0101:
+                    for (countLoop = 0; countLoop <= 50; countLoop++)
                     {
                         input = terminal.getResponse();
+                        
                     }
-                    System.Console.ReadLine();
+                    if (countLoop > 50)
+                        goto Label_0102; 
+                    if (string.IsNullOrEmpty(input))
+                        goto Label_0101;
+                    else
+                    {
+                        System.Console.ReadLine();
+                    }
+                    Label_0102:
+                    System.Console.WriteLine("Manually Input Container Card Number Secure Gate IN terminal " +
+                        System.Console.Out.NewLine + @"type: \r to to retry process get barcode from System"
+                                                   );
+                    input = System.Console.ReadLine();
                     //if (string.IsNullOrEmpty(input)) input = terminal.getResponse();//tambahan grafik 17-04-2018
                     flag2 = false;
                     switch (input.ToLower())
                     {
+                        case @"\r":
+                            countLoop = 0;
+                            goto Label_0101;
+
                         case @"\c":
                             System.Console.WriteLine(System.Console.Out.NewLine + "Secure Gate IN terminal"
                                                     + System.Console.Out.NewLine
