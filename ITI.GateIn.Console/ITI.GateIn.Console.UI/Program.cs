@@ -51,6 +51,8 @@ namespace ITI.GateIn.Console.UI
             {
 
                 //login logic
+                var terminal = new Terminal(_SecureGateTelnetAddress, Convert.ToInt32(_SecureGateTelnetPort), 10, 80, 40); // hostname, port, timeout [s], width, height
+                terminal.Connect();//tambahan grafik 17-04-2018
                 System.Console.Write("info: logged in" + System.Console.Out.NewLine + "info: waiting for input..." + System.Console.Out.NewLine);
                 string input = string.Empty;
                 bool flag2 = false;
@@ -58,15 +60,16 @@ namespace ITI.GateIn.Console.UI
                 {
                     System.Console.Write("SCGIN> ");
                     input = System.Console.ReadLine();
+                    if (string.IsNullOrEmpty(input)) input = terminal.getResponse();//tambahan grafik 17-04-2018
                     flag2 = false;
                     switch (input.ToLower())
                     {
                         case @"\c":
-                            System.Console.WriteLine(System.Console.Out.NewLine + "Secure Gate IN terminal" 
-                                                    + System.Console.Out.NewLine 
-                                                    + System.Console.Out.NewLine + "Copyright (c) 2018, Intercon International Terminal. All rights reserved." 
-                                                    + System.Console.Out.NewLine 
-                                                    + System.Console.Out.NewLine + "Portions Copyright (c) 2018, AGY Solutions." 
+                            System.Console.WriteLine(System.Console.Out.NewLine + "Secure Gate IN terminal"
+                                                    + System.Console.Out.NewLine
+                                                    + System.Console.Out.NewLine + "Copyright (c) 2018, Intercon International Terminal. All rights reserved."
+                                                    + System.Console.Out.NewLine
+                                                    + System.Console.Out.NewLine + "Portions Copyright (c) 2018, AGY Solutions."
                                                     + System.Console.Out.NewLine);
                             break;
 
@@ -81,7 +84,7 @@ namespace ITI.GateIn.Console.UI
                         case "open":
                             try
                             {
-                                OpenGate("openup command", log, new ContCard());
+                                OpenGate("openup command", log, new ContCard(), terminal);
                             }
                             catch (Exception exception)
                             {
@@ -100,7 +103,7 @@ namespace ITI.GateIn.Console.UI
                         default:
                             try
                             {
-                                ProcessInput(input, log);
+                                ProcessInput(input, log, terminal);
                             }
                             catch (Exception exception2)
                             {
@@ -113,24 +116,25 @@ namespace ITI.GateIn.Console.UI
                 while (!flag2);
                 System.Console.WriteLine("info: logging out...");
                 System.Console.WriteLine("info: logged out");
+                terminal.Close();
                 return;
             }
             catch (Exception)
             {
-                System.Console.WriteLine("error: unable to login");
+                System.Console.WriteLine("error: unable to login / connect to Gate");
                 if (random.Next(2) > 0)
                 {
-                    System.Console.WriteLine("info: make sure the database server is online and configured correctly. " 
+                    System.Console.WriteLine("info: make sure the database server is online and configured correctly. "
                                             + System.Console.Out.NewLine + "See SCGIN manual page \"Installation and Setup\" for details.");
                 }
                 else
                 {
-                    System.Console.WriteLine("info: make sure the Secure Gate IN is configured properly. " 
+                    System.Console.WriteLine("info: make sure the Secure Gate IN is configured properly. "
                                             + System.Console.Out.NewLine + "See SCGIN manual page \"Installation and Setup\" for instruction.");
                 }
-                System.Console.WriteLine(System.Console.Out.NewLine + @"type: \c to connect" 
-                                            + System.Console.Out.NewLine + @"    : \h for help with SCGIN command" 
-                                            + System.Console.Out.NewLine + @"    : \q to quit" 
+                System.Console.WriteLine(System.Console.Out.NewLine + @"type: \c to connect"
+                                            + System.Console.Out.NewLine + @"    : \h for help with SCGIN command"
+                                            + System.Console.Out.NewLine + @"    : \q to quit"
                                             + System.Console.Out.NewLine);
             }
             string str2 = string.Empty;
@@ -158,9 +162,9 @@ namespace ITI.GateIn.Console.UI
                     goto Label_0403;
                 }
             }
-            System.Console.WriteLine(System.Console.Out.NewLine + @"type: \c to connect" 
-                                    + System.Console.Out.NewLine + @"    : \h for help with SCGIN command" 
-                                    + System.Console.Out.NewLine + @"    : \q to quit" 
+            System.Console.WriteLine(System.Console.Out.NewLine + @"type: \c to connect"
+                                    + System.Console.Out.NewLine + @"    : \h for help with SCGIN command"
+                                    + System.Console.Out.NewLine + @"    : \q to quit"
                                     + System.Console.Out.NewLine);
             Label_0403:
             if (!flag)
@@ -170,7 +174,7 @@ namespace ITI.GateIn.Console.UI
             goto Label_0271;
         }
 
-        private static void OpenGate(string openedBy, SecureGateLog log, ContCard contCard)
+        private static void OpenGate(string openedBy, SecureGateLog log, ContCard contCard, Terminal terminal)
         {
             try
             {
@@ -192,7 +196,6 @@ namespace ITI.GateIn.Console.UI
             }
             try
             {
-                var terminal = new Terminal(_SecureGateTelnetAddress, Convert.ToInt32(_SecureGateTelnetPort), 10, 80, 40); // hostname, port, timeout [s], width, height
                 PushCommand.PushOK(terminal);
 
                 Thread.Sleep(1000);
@@ -224,7 +227,7 @@ namespace ITI.GateIn.Console.UI
             }
         }
 
-        private static void ProcessInput(string input, SecureGateLog log)
+        private static void ProcessInput(string input, SecureGateLog log, Terminal terminal)
         {
             if (input.Length > 0)
             {
@@ -245,7 +248,7 @@ namespace ITI.GateIn.Console.UI
                     cardDAL.UpdateContCardGateIn(contCard.ContCardID, contCard.Loc1);
 
                     System.Console.WriteLine("DTM1 USED");
-                    OpenGate(input, log, contCard);
+                    OpenGate(input, log, contCard, terminal);
 
                     if ((_CaptureFile.Length > 0) && File.Exists(_CaptureFile))
                     {

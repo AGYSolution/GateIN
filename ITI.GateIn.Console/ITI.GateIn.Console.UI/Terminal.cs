@@ -222,7 +222,10 @@ namespace ITI.GateIn.Console.UI
                 //						IPEndPoint ipEndPoint = new IPEndPoint(ipAddress, this.port);
                 // because it addresses local endpoints
                 this._tcpClient = new TcpClient(this._hostName, this._port) { ReceiveTimeout = this._timeoutReceive, SendTimeout = this._timeoutSend, NoDelay = true };
+
+                
                 this._tcpClient.GetStream().BeginRead(this._buffer, 0, this._buffer.Length, this._callBackReceive, null);
+
                 return true;
             }
             catch
@@ -280,7 +283,22 @@ namespace ITI.GateIn.Console.UI
             }
         }
         #endregion
-
+        public string getResponse()
+        {
+            string result = string.Empty;
+            try
+            {
+                if (!this.IsOpenConnection || this._tcpClient == null) return string.Empty;
+                byte[] dataReceived = new byte[256];
+                this._tcpClient.GetStream().BeginRead(dataReceived, 0, dataReceived.Length, this._callBackReceive, null);
+                result = Encoding.ASCII.GetString(dataReceived);
+            }
+            catch (Exception)
+            {
+                result = string.Empty;
+            }
+            return result;
+        }
         #region Send response to Telnet server
         /// <summary>
         /// Send a response to the server
