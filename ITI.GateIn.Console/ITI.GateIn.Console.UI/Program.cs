@@ -59,8 +59,13 @@ namespace ITI.GateIn.Console.UI
                 do
                 {
                     System.Console.Write("SCGIN> ");
-                    input = System.Console.ReadLine();
-                    if (string.IsNullOrEmpty(input)) input = terminal.getResponse();//tambahan grafik 17-04-2018
+                    //if (string.IsNullOrEmpty(input)) input = terminal.getResponse();//tambahan grafik 17-04-2018
+                    while (string.IsNullOrEmpty(input))
+                    {
+                        input = terminal.getResponse();
+                    }
+                    System.Console.ReadLine();
+                    //if (string.IsNullOrEmpty(input)) input = terminal.getResponse();//tambahan grafik 17-04-2018
                     flag2 = false;
                     switch (input.ToLower())
                     {
