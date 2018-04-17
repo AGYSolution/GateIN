@@ -223,7 +223,7 @@ namespace ITI.GateIn.Console.UI
                 // because it addresses local endpoints
                 this._tcpClient = new TcpClient(this._hostName, this._port) { ReceiveTimeout = this._timeoutReceive, SendTimeout = this._timeoutSend, NoDelay = true };
 
-                
+
                 this._tcpClient.GetStream().BeginRead(this._buffer, 0, this._buffer.Length, this._callBackReceive, null);
 
                 return true;
@@ -291,7 +291,13 @@ namespace ITI.GateIn.Console.UI
                 if (!this.IsOpenConnection || this._tcpClient == null) return string.Empty;
                 byte[] dataReceived = new byte[256];
                 this._tcpClient.GetStream().BeginRead(dataReceived, 0, dataReceived.Length, this._callBackReceive, null);
-                result = Encoding.ASCII.GetString(dataReceived);
+                //result = Encoding.ASCII.GetString(dataReceived);
+                using (var reader = new StreamReader(this._tcpClient.GetStream()))
+                {
+                    result = reader.ReadLine();
+
+                    // do something with the data...
+                }
             }
             catch (Exception)
             {
